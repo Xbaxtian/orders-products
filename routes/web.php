@@ -17,4 +17,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('admin')->middleware('role:admin')->group(function() {
+    Route::get('/', 'AdminController@index')->name('admin');
+});
+
+Route::prefix('vendor')->middleware('role:vendor')->group(function() {
+    Route::get('/', 'VendorController@index')->name('vendor');
+});
+
+Route::prefix('client')->middleware('role:client')->group(function() {
+    Route::get('/', 'ClientController@index')->name('client');
+});

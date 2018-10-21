@@ -34,6 +34,25 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function authenticated($request , $user)
+    {
+        //dd($user->getRole());
+        switch ($user->role->name) {
+            case 'admin':
+                $this->redirectTo = '/admin';
+                break;
+            case 'vendor':
+                $this->redirectTo = '/vendor';
+                break;
+            case 'client':
+                $this->redirectTo = '/client';
+                break;
+            default:
+                break;
+        }
     }
 }
