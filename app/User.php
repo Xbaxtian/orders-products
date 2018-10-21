@@ -32,6 +32,11 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
+    public function products()
+    {
+        return $this->HasMany('App\Product');
+    }
+
     public function hasRole($role)
     {
         if ($this->role()->where('name', $role)->first()) {

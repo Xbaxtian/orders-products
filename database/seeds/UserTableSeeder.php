@@ -30,6 +30,9 @@ class UserTableSeeder extends Seeder
         $user->password = bcrypt('123456');
         $user->role_id = $role_vendor->id;
         $user->save();
+        for ($i = 0; $i < 10; $i++) {
+            $user->products()->save(factory(App\Product::class)->make());
+        }
 
         $user = new User();
         $user->name = 'Client';
