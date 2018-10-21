@@ -37,6 +37,11 @@ class User extends Authenticatable
         return $this->HasMany('App\Product');
     }
 
+    public function orders()
+    {
+        return $this->HasMany('App\Order');
+    }
+
     public function hasRole($role)
     {
         if ($this->role()->where('name', $role)->first()) {
