@@ -20,6 +20,9 @@ class CreateOrdersTable extends Migration
             $table->integer('quantity')->unsigned();
             $table->string('status');
             $table->string('response');
+            $table->text('shipping');
+            $table->text('billing');
+            $table->integer('total');
             $table->timestamps();
 
             //foreing key

@@ -8,7 +8,7 @@ class Order extends Model
 {
     public function user()
     {
-        return $this->belognsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function product(){
