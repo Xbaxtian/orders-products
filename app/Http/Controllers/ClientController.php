@@ -47,4 +47,9 @@ class ClientController extends Controller
            'order' => $order
         ]);
     }
+
+    public function clientOrders()
+    {
+        return view('client.orders');
+    }
 }

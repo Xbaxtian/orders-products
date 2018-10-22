@@ -34,7 +34,7 @@
                                 <td>{{$product->price}}</td>
                                 <td>{{$product->currency}}</td>
                                 <td>{{$product->description}}</td>
-                                <td><a href="{{ 'client/prepare_order/'.$product->id }}" class="btn btn-primary">Order</a></td>
+                                <td><a href="{{ 'client/prepare_order/'.$product->id }}" class="btn btn-dark">Order</a></td>
                             </tr>
                         @endforeach
                     @endforeach
