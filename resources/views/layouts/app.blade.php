@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta id="token" name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Tekton</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -60,7 +60,9 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ url('client/orders') }}">Orders</a>
+                                    @if (Auth::user()->role->name == 'client')
+                                        <a class="dropdown-item" href="{{ url('client/orders') }}">Orders</a>
+                                    @endif
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
